@@ -2,7 +2,7 @@
 # Pulls the latest Nova from GitHub, checks it, and restarts Nova.
 # nova-update.timer runs this every few minutes; it's also safe to run by hand.
 #
-# - Does nothing if the Jetson is already on the latest commit.
+# - Does nothing if this machine is already on the latest commit.
 # - Runs `uv sync` and the tests on the new commit. If they fail, it rolls back
 #   and skips that commit until a newer one is pushed.
 # - Restarts nova.service if one is installed.

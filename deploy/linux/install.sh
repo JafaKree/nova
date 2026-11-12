@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# One-time setup on the Jetson. Run from the cloned repo:
-#   bash deploy/jetson/install.sh
+# One-time setup on the Linux machine that runs Nova. Run from the cloned repo:
+#   bash deploy/linux/install.sh
 set -euo pipefail
 
 REPO_DIR=$(cd "$(dirname "$0")/../.." && pwd)
-HERE="$REPO_DIR/deploy/jetson"
+HERE="$REPO_DIR/deploy/linux"
 UNIT_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/systemd/user"
 
 export PATH="$HOME/.local/bin:$PATH"
@@ -30,7 +30,7 @@ systemctl --user daemon-reload
 systemctl --user enable --now nova-update.timer
 
 echo
-echo "Done. The Jetson now checks GitHub for Nova updates every 5 minutes."
+echo "Done. This machine now checks GitHub for Nova updates every 5 minutes."
 echo "  Next check:   systemctl --user list-timers nova-update.timer"
 echo "  Update now:   systemctl --user start nova-update.service"
 echo "  View the log: journalctl --user -u nova-update.service -n 50"
