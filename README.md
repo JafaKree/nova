@@ -11,6 +11,17 @@ uv sync          # installs Python 3.12 and the dependencies into .venv
 uv run pytest    # runs the tests
 ```
 
+## Chat with Nova
+
+Start Ollama and pull the model once (`ollama pull qwen3.5:9b`), then:
+
+```sh
+uv run nova
+```
+
+Type `/quit` (or press Ctrl+C / Ctrl+D) to leave. Each run starts a fresh conversation.
+To use a different model or Ollama server, set `NOVA_MODEL` or `NOVA_OLLAMA_URL`.
+
 ## Automatic updates on Linux
 
 Nova can keep itself up to date on a Linux machine with systemd. Once set up, the machine checks GitHub every 5 minutes. When `main` has a new commit, it pulls it, runs `uv sync` and the tests, and restarts Nova. If the tests fail, it rolls back and skips that commit until you push a fix.
