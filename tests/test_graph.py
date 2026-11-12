@@ -1,6 +1,7 @@
 from langchain_core.messages import HumanMessage, SystemMessage
 
-from nova.graph import PERSONA_PATH, build_graph, load_persona
+from nova.graph import build_graph
+from nova.persona import PERSONA_PATH, load_persona
 
 
 def config(thread_id: str) -> dict:
@@ -9,7 +10,7 @@ def config(thread_id: str) -> dict:
 
 def test_persona_file_ships_with_package():
     assert PERSONA_PATH.exists()
-    assert "Nova" in load_persona()
+    assert "Nova" in load_persona().prompt
 
 
 def test_one_turn_appends_user_and_reply(fake_llm):
