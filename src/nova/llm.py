@@ -7,5 +7,13 @@ from nova.settings import Settings
 
 
 def make_llm(settings: Settings) -> BaseChatModel:
-    """Return a ChatOllama client. No connection is made until it is invoked."""
-    return ChatOllama(model=settings.model, base_url=settings.ollama_url)
+    """Return a ChatOllama client. No connection is made until it is invoked.
+
+    `reasoning` is sent to Ollama as `think`. False stops thinking models from
+    reasoning silently before they answer.
+    """
+    return ChatOllama(
+        model=settings.model,
+        base_url=settings.ollama_url,
+        reasoning=settings.think,
+    )

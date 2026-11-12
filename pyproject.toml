@@ -9,6 +9,9 @@ dependencies = [
     "langchain-ollama",
 ]
 
+[project.scripts]
+nova = "nova.cli:main"
+
 [dependency-groups]
 dev = [
     "pytest",
