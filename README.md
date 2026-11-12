@@ -21,6 +21,7 @@ uv run nova
 
 Type `/quit` (or press Ctrl+C / Ctrl+D) to leave. Each run starts a fresh conversation.
 To use a different model or Ollama server, set `NOVA_MODEL` or `NOVA_OLLAMA_URL`.
+Thinking is off so replies start quickly; set `NOVA_THINK=1` to turn it on.
 
 ## Automatic updates on Linux
 
