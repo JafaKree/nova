@@ -1,0 +1,8 @@
+[Unit]
+Description=Update Nova from GitHub
+
+[Service]
+Type=oneshot
+WorkingDirectory=@REPO@
+Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/bin/bash @REPO@/deploy/jetson/nova-update.sh
